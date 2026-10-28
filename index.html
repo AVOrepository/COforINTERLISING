@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АВО для Интерлизинг</title>
+<link rel="preload" href="assets/device.jpg" as="image">
+<link rel="preload" href="assets/logo.webp" as="image">
+<style>
+@font-face { font-family: 'Onest'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(assets/onest-598aa1.woff2) format('woff2'); unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: 'Onest'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(assets/onest-960412.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 500 700; font-display: swap; src: url(assets/unbounded-20c0b6.woff2) format('woff2'); unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 500 700; font-display: swap; src: url(assets/unbounded-3859ae.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Onest'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(assets/onest-d1abf1.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Onest'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(assets/onest-fd7dbb.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 500 700; font-display: swap; src: url(assets/unbounded-4cfb17.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 500 700; font-display: swap; src: url(assets/unbounded-edd24a.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 600 800; font-display: swap; src: url(assets/montserrat-cyrillic.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 600 800; font-display: swap; src: url(assets/montserrat-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 600 800; font-display: swap; src: url(assets/montserrat-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+</style>
+<style>
+/* ===========================================
+   TOKENS: primitive -> semantic
+   Same brand world as the AVO decks for Allur
+   =========================================== */
+:root {
+  --c-ink-950: #0E0A14;
+  --c-ink-900: #171120;
+  --c-ink-800: #211830;
+  --c-ink-700: #2C2140;
+  --c-plum-700: #3B1A6B;
+  --c-violet-600: #6E22C9;
+  --c-violet-500: #7B2FE0;
+  --c-lilac-300: #C9B3F7;
+  --c-lilac-200: #DCCDFA;
+  --c-white: #F7F4FC;
+  --c-mist: #ABA3BC;
+  --c-mist-dim: #7D7590;
+
+  --stage-bg: #07050A;
+  --slide-bg: var(--c-ink-950);
+  --surface: var(--c-ink-900);
+  --surface-2: var(--c-ink-800);
+  --surface-3: var(--c-ink-700);
+  --brand: var(--c-violet-600);
+  --brand-deep: var(--c-plum-700);
+  --accent: var(--c-lilac-300);
+  --text: var(--c-white);
+  --text-muted: var(--c-mist);
+  --on-brand-muted: var(--c-lilac-200);
+
+  --font-display: 'Unbounded', 'Arial', sans-serif;
+  --font-body: 'Onest', 'Arial', sans-serif;
+
+  --pad-x: 112px;
+  --pad-top: 88px;
+  --gap: 28px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 0.9s;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===========================================
+   FIXED 16:9 STAGE (frontend-slides viewport-base.css, in full)
+   =========================================== */
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: var(--stage-bg, #000); }
+.deck-viewport { position: fixed; inset: 0; overflow: hidden; background: var(--stage-bg, #000); }
+.deck-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; transform-origin: 0 0; background: var(--slide-bg, #fff); }
+.slide { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; display: block; visibility: hidden; opacity: 0; pointer-events: none; background: var(--slide-bg, #fff); }
+.slide.active, .slide.visible { visibility: visible; opacity: 1; pointer-events: auto; z-index: 1; }
+img, video, canvas, svg { max-width: 100%; max-height: 100%; }
+.deck-controls { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 1000; }
+@media print {
+  @page { size: 1920px 1080px; margin: 0; }
+  html, body { width: 1920px; height: auto; overflow: visible; background: #fff; }
+  .deck-viewport { position: static; overflow: visible; background: #fff; }
+  .deck-stage { position: static; width: auto; height: auto; transform: none !important; background: none; }
+  .slide { position: relative; display: block !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; width: 1920px; height: 1080px; break-after: page; page-break-after: always; }
+  .slide:last-child { break-after: auto; page-break-after: auto; }
+  .deck-controls, .progress, .edit-toggle, .edit-hotzone { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .ladder .step { transform: none !important; }
+  .meter i.on { background: var(--brand) !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+}
+
+/* ===========================================
+   BASE TYPE + BROWSER SURFACES
+   =========================================== */
+body { font-family: var(--font-body); color: var(--text); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--c-violet-500); color: #fff; }
+.slide { font-family: var(--font-body); color: var(--text); }
+.avo { font-family: 'Montserrat', 'Arial', sans-serif; font-weight: 800; letter-spacing: -0.01em; }
+.avo.wide { display: inline-block; font-weight: 700; line-height: 0; transform-origin: left center; }
+.avo.wide.up { font-size: 1.12em; transform: scaleX(1.15); margin-right: .085em; }
+.avo.wide.lo { font-size: 1.1em; transform: scaleX(1.08); letter-spacing: 0; margin-left: -.035em; margin-right: .008em; }
+h1, h2, h3, .display { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.03em; line-height: 1.04; }
+h2 { font-size: 60px; text-wrap: balance; }
+.lead { font-size: 26px; line-height: 1.4; color: var(--text-muted); margin-top: 18px; max-width: 1500px; }
+.num { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.slide-head { position: absolute; left: var(--pad-x); right: var(--pad-x); top: var(--pad-top); }
+.slide-body { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 290px; bottom: 112px; }
+
+/* list with a small lilac dot */
+.dots { list-style: none; }
+.dots li { position: relative; padding-left: 26px; font-size: 21px; line-height: 1.32; margin-bottom: 12px; }
+.dots li::before { content: ""; position: absolute; left: 3px; top: 11px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.on-brand .dots li::before { background: #fff; }
+.dots.two { columns: 2; column-gap: 40px; }
+.dots.two li { break-inside: avoid; }
+
+/* footer chrome on content slides */
+.foot { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 44px; display: flex; align-items: center; justify-content: space-between; font-size: 18px; color: var(--text-muted); }
+.foot img { height: 28px; margin-right: 22px; vertical-align: middle; }
+.foot .page { font-variant-numeric: tabular-nums; }
+
+/* level meter: four segments, lit up to the current level */
+.meter { display: flex; align-items: center; gap: 8px; font-size: 20px; color: var(--text-muted); }
+.meter i { width: 46px; height: 10px; background: var(--surface-3); transition: background .5s var(--ease-out-expo); transition-delay: calc(var(--i) * 120ms + 400ms); }
+.visible .meter i.on { background: var(--brand); }
+.meter i.on:last-of-type, .visible .meter i.on.now { background: var(--accent); }
+.meter span { margin-left: 14px; white-space: nowrap; }
+.slide-head .meter { position: absolute; right: 0; top: 100px; }
+
+/* check / none marks */
+.ok { width: 30px; height: 30px; color: var(--accent); }
+.no { display: inline-block; width: 18px; height: 3px; background: #4A4160; vertical-align: middle; }
+
+/* ===========================================
+   MOTION: staggered entrance on the active slide
+   =========================================== */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity var(--dur) var(--ease-out-expo), transform var(--dur) var(--ease-out-expo); transition-delay: calc(var(--d, 0) * 80ms + 80ms); }
+.slide.visible .reveal { opacity: 1; transform: none; }
+.reveal.from-right { transform: translateX(80px); }
+.slide.visible .reveal.from-right { transform: none; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-18px) rotate(1deg); } }
+@keyframes drift { from { transform: scale(1.04); } to { transform: scale(1.12) translateX(-2%); } }
+@keyframes ping { 0% { transform: scale(.6); opacity: .9; } 100% { transform: scale(2.6); opacity: 0; } }
+
+/* ===========================================
+   1. COVER: night city tinted in brand violet, a live route, the block as the hero
+   =========================================== */
+.night { position: absolute; inset: 0; overflow: hidden; background: #0B0712; }
+.night img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.25) brightness(.9); animation: drift 30s ease-in-out infinite alternate; }
+.night .tint { position: absolute; inset: 0; background: #6E22C9; mix-blend-mode: multiply; opacity: .9; }
+.night .glow { position: absolute; inset: 0; background: #C9B3F7; mix-blend-mode: soft-light; opacity: .35; }
+.night .scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,7,18,.96) 0%, rgba(11,7,18,.82) 38%, rgba(11,7,18,.25) 70%, rgba(11,7,18,.45) 100%); }
+.night .floor { position: absolute; left: 0; right: 0; bottom: 0; height: 420px; background: linear-gradient(0deg, rgba(11,7,18,.95), rgba(11,7,18,0)); }
+.route { position: absolute; inset: 0; width: 1920px; height: 1080px; max-width: none; max-height: none; }
+.route .trail { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2600; stroke-dashoffset: 2600; opacity: .9; }
+.visible .route .trail { animation: draw 3.2s .5s var(--ease-out-expo) forwards; }
+.route .ghost { fill: none; stroke: rgba(201,179,247,.22); stroke-width: 2; stroke-dasharray: 2 10; stroke-linecap: round; }
+.route .car { fill: #fff; }
+.route .halo { fill: var(--accent); opacity: .5; transform-box: fill-box; transform-origin: center; animation: ping 2.4s var(--ease-out-expo) infinite; }
+.route .stop { fill: var(--brand); stroke: #fff; stroke-width: 3; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.shot .route .trail { stroke-dashoffset: 0; }
+
+.cover { background: #050407; }
+.cover .splash { position: absolute; top: 0; left: 560px; width: 1578px; height: 1080px; overflow: hidden; }
+.cover .splash img { width: 100%; height: 100%; object-fit: cover; transform-origin: 70% 50%; animation: push 22s ease-in-out infinite alternate; }
+@keyframes push { from { transform: scale(1); } to { transform: scale(1.07); } }
+.cover .splash::after { content: ""; position: absolute; inset: 0; background: var(--brand); mix-blend-mode: color; opacity: .3; }
+.cover-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, #050407 0, #050407 560px, rgba(5,4,7,.88) 720px, rgba(5,4,7,0) 1040px); }
+.cover .top { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 72px; display: flex; justify-content: space-between; align-items: center; z-index: 3; }
+.cover .top img { height: 46px; }
+.cover .top span { font-size: 20px; color: var(--on-brand-muted); }
+.cover h1 { position: absolute; left: var(--pad-x); top: 214px; width: 900px; font-size: 96px; line-height: 1; letter-spacing: -0.045em; z-index: 3; }
+.cover .intro { position: absolute; left: var(--pad-x); top: 548px; width: 700px; font-size: 26px; line-height: 1.45; color: #DCD3EE; z-index: 3; }
+.cover .offer { position: absolute; left: var(--pad-x); bottom: 92px; display: grid; grid-template-columns: 280px 320px 340px; gap: 40px; z-index: 3; }
+.cover .offer .num { font-size: 50px; line-height: 1; color: #fff; }
+.cover .offer .num small { font-size: 28px; margin-right: 10px; color: var(--on-brand-muted); letter-spacing: -0.02em; }
+.cover .offer p { font-size: 19px; line-height: 1.35; color: var(--on-brand-muted); margin-top: 12px; }
+.cover .offer .gain .num { color: var(--accent); }
+
+/* ===========================================
+   2. LADDER (overview of the four levels)
+   =========================================== */
+.ladder { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap); align-items: end; height: 100%; }
+.ladder .step { position: relative; padding: 40px 36px 36px; display: flex; flex-direction: column; transform-origin: bottom; transform: scaleY(.2); opacity: 0; transition: transform 1s var(--ease-out-expo), opacity .6s; transition-delay: calc(var(--i) * 110ms + 200ms); }
+.visible .ladder .step { transform: none; opacity: 1; }
+.ladder .step > * { opacity: 0; transition: opacity .6s; transition-delay: calc(var(--i) * 110ms + 700ms); }
+.visible .ladder .step > * { opacity: 1; }
+.ladder .s1 { height: 470px; background: var(--surface); }
+.ladder .s2 { height: 540px; background: var(--surface-2); }
+.ladder .s3 { height: 610px; background: var(--brand-deep); }
+.ladder .s4 { height: 680px; background: var(--brand); }
+.ladder .lv { font-size: 20px; color: var(--text-muted); }
+.ladder .s3 .lv, .ladder .s4 .lv { color: var(--on-brand-muted); }
+.ladder h3 { font-size: 30px; line-height: 1.12; margin-top: 12px; }
+.ladder .what { font-size: 21px; line-height: 1.4; margin-top: 18px; color: var(--text-muted); }
+.ladder .s3 .what, .ladder .s4 .what { color: var(--on-brand-muted); }
+.ladder .what b { color: var(--text); font-weight: 600; }
+.ladder .price { margin-top: auto; }
+.ladder .price .num { font-size: 40px; }
+.ladder .price p { font-size: 19px; color: var(--text-muted); margin-top: 6px; }
+.ladder .s3 .price p, .ladder .s4 .price p { color: var(--on-brand-muted); }
+
+/* ===========================================
+   3-6. TIER SLIDES
+   =========================================== */
+.tierhead h2 { font-size: 54px; }
+.tier { display: grid; grid-template-columns: 800px minmax(0, 1fr); gap: 72px; height: 100%; }
+
+/* price table */
+table.pt { width: 100%; border-collapse: collapse; }
+.pt th, .pt td { text-align: left; vertical-align: middle; padding: 0 20px; }
+.pt th:first-child, .pt td:first-child { padding-left: 0; }
+.pt thead th { vertical-align: bottom; padding-bottom: 16px; font-size: 20px; font-weight: 500; color: var(--text-muted); }
+.pt thead .pics { display: flex; align-items: flex-end; gap: 14px; height: 128px; margin-bottom: 12px; }
+.pt thead .pics img { height: 128px; }
+.pt thead .pics img.car { height: 92px; }
+.pt tbody td { height: 58px; background: var(--surface); }
+.pt tbody tr + tr td { border-top: 4px solid var(--c-ink-950); }
+.pt tbody td:first-child { background: none; font-size: 20px; color: var(--text-muted); width: 250px; padding-right: 12px; }
+.pt tbody td.v .num { font-size: 30px; }
+.pt tbody tr.rrc td { height: 76px; }
+.pt tbody tr.rrc td.v .num { font-size: 28px; }
+.pt .gain { display: block; font-size: 18px; color: var(--accent); margin-top: 2px; font-weight: 500; }
+.pt .gain b { font-weight: 600; }
+.pt tbody tr.kit td.v { background: var(--surface-2); }
+.fine { font-size: 18px; line-height: 1.4; color: var(--text-muted); margin-top: 16px; }
+
+.absent { margin-top: 26px; background: var(--surface); padding: 22px 26px; display: grid; grid-template-columns: 44px 1fr; gap: 18px; align-items: center; }
+.absent svg { width: 40px; height: 40px; color: var(--accent); }
+.absent p { font-size: 21px; line-height: 1.38; }
+.absent p span { color: var(--text-muted); }
+
+/* feature groups on the right */
+.fx h3 { font-size: 26px; margin-bottom: 18px; }
+.fx .group + .group { margin-top: 34px; }
+.fx .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 44px; }
+.fx .dots li { font-size: 21px; }
+.fx .dots li b { font-weight: 600; }
+
+.inherit { background: var(--surface); padding: 26px 30px; }
+.inherit h3 { font-size: 22px; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+.inherit h3 svg { width: 26px; height: 26px; color: var(--accent); flex: none; }
+.inherit p { font-size: 20px; line-height: 1.45; color: var(--text-muted); }
+.inherit + .inherit { margin-top: 14px; }
+
+.adds { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); margin-top: 28px; }
+.add { background: var(--surface-2); padding: 30px 32px 26px; position: relative; }
+.add.brand { background: var(--brand); }
+.add h3 { font-size: 28px; line-height: 1.12; margin-bottom: 18px; }
+.add .plus { display: inline-block; font-family: var(--font-display); color: var(--accent); margin-right: 6px; }
+.add.brand .plus { color: #fff; }
+.add .pic { position: absolute; right: 8px; top: -64px; width: 140px; filter: drop-shadow(0 24px 26px rgba(0,0,0,.55)); }
+.add.brand .dots li::before { background: #fff; }
+.add.brand .dots li { color: #fff; }
+
+/* the car with pins (security tiers) */
+.scheme { position: relative; height: 312px; background: var(--surface); overflow: hidden; }
+.scheme .car { position: absolute; left: 262px; top: 34px; height: 252px; }
+.pin { position: absolute; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; background: var(--accent); }
+.pin::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--accent); animation: ping 2.2s var(--ease-out-expo) infinite; animation-delay: var(--pd, 0s); }
+.pin.hot, .pin.hot::after { background: #fff; }
+.tag { position: absolute; font-size: 18px; line-height: 1.3; width: 220px; color: var(--text); }
+.tag.r { text-align: left; }
+.tag.l { text-align: right; }
+.tag b { display: block; font-weight: 600; }
+.tag span { color: var(--text-muted); }
+.scheme .leads { position: absolute; left: 0; top: 0; width: 800px; height: 312px; max-width: none; max-height: none; }
+.scheme .leads path { fill: none; stroke: rgba(201,179,247,.45); stroke-width: 1.5; }
+.lead-line { position: absolute; height: 2px; background: var(--surface-3); transform-origin: left center; }
+
+.single .pt tbody td.v { width: auto; }
+.scheme + table.pt { margin-top: 26px; }
+
+.add3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
+.add3 .add { padding: 30px 28px 28px; min-height: 300px; display: flex; flex-direction: column; }
+.add3 .add h3 { font-size: 25px; }
+.add3 .add p { font-size: 20px; line-height: 1.42; color: var(--text-muted); }
+.add3 .add.brand p { color: var(--on-brand-muted); }
+.add3 .beacons { display: flex; gap: 16px; align-items: flex-end; margin-top: auto; padding-top: 16px; }
+.add3 .beacons img { height: 66px; filter: drop-shadow(0 14px 16px rgba(0,0,0,.45)); }
+.add3 .ico { width: 54px; height: 54px; margin-top: auto; padding-top: 0; color: var(--accent); }
+.add3 .add.brand .ico { color: #fff; }
+
+
+/* tier 4: the three added lines of defence, set loud */
+.adds4 { list-style: none; margin: 6px 0 44px; }
+.adds4 li { position: relative; padding-left: 52px; font-family: var(--font-display); font-weight: 600; font-size: 34px; line-height: 1.15; letter-spacing: -0.03em; }
+.adds4 li + li { margin-top: 16px; }
+.adds4 li::before { content: "+"; position: absolute; left: 0; top: -2px; color: var(--accent); }
+.dots.tight li { font-size: 20px; margin-bottom: 9px; }
+
+/* screenshot / export mode: final state, no motion */
+.shot *, .shot *::before, .shot *::after { transition: none !important; animation: none !important; }
+.shot .pin::after { display: none; }
+.shot .deck-controls, .shot .progress { display: none; }
+.deck-controls { transition: opacity .4s; }
+.deck-controls.idle { opacity: 0; }
+
+/* ===========================================
+   7. COMPARISON TABLE
+   =========================================== */
+table.cmp { width: 100%; border-collapse: collapse; }
+.cmp th, .cmp td { height: 46px; padding: 0 20px; text-align: center; font-size: 20px; }
+.cmp th:first-child, .cmp td:first-child { text-align: left; padding-left: 24px; width: 640px; white-space: nowrap; }
+.cmp thead th { height: 76px; font-family: var(--font-display); font-weight: 600; font-size: 19px; letter-spacing: -0.01em; line-height: 1.18; background: var(--surface-2); vertical-align: middle; }
+.cmp thead th:first-child { background: none; }
+.cmp thead th.top { background: var(--brand); }
+.cmp tbody tr:nth-child(odd) td { background: var(--surface); }
+.cmp tbody td.col4 { background: rgba(110,34,201,.16) !important; }
+.cmp tbody tr:nth-child(odd) td.col4 { background: rgba(110,34,201,.24) !important; }
+.cmp .ok { width: 26px; height: 26px; vertical-align: middle; }
+.cmp td.q { font-family: var(--font-display); font-weight: 600; font-size: 19px; color: var(--accent); }
+.cmp tr.money td { height: 58px; background: var(--surface-2) !important; }
+.cmp tr.money td.col4 { background: var(--brand) !important; }
+.cmp tr.money td .num { font-size: 22px; }
+.cmp tr.money td small { display: block; font-size: 15px; color: var(--text-muted); font-family: var(--font-body); font-weight: 400; letter-spacing: 0; }
+.cmp tr.money td.col4 small { color: var(--on-brand-muted); }
+.cmp tr.gap td { height: 10px; background: none !important; }
+
+/* ===========================================
+   8. PROFIT CALCULATOR (the one live thing): four choices, one answer
+   =========================================== */
+.calc { display: grid; grid-template-columns: 800px minmax(0, 1fr); gap: 56px; height: 100%; }
+.calc .ctrl { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+.calc .label { font-size: 20px; color: var(--text-muted); margin-bottom: 14px; }
+.seg { display: grid; gap: 10px; }
+.seg.lv { grid-template-columns: repeat(2, 1fr); }
+.seg.two { grid-template-columns: repeat(2, 1fr); }
+.seg.three { grid-template-columns: repeat(3, 1fr); }
+.seg button { font: 600 22px var(--font-body); color: var(--text); background: var(--surface); border: 0; padding: 22px 18px; cursor: pointer; transition: background .25s, transform .15s, opacity .25s; }
+.seg.lv button { text-align: left; font-family: var(--font-display); font-size: 19px; letter-spacing: -0.01em; line-height: 1.2; padding: 20px 24px; min-height: 92px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.seg.lv button small { font: 400 17px var(--font-body); letter-spacing: 0; color: var(--text-muted); }
+.seg button:hover { background: var(--surface-2); }
+.seg button:active { transform: scale(.98); }
+.seg button[aria-pressed="true"] { background: var(--brand); }
+.seg button[aria-pressed="true"] small { color: var(--on-brand-muted); }
+.seg button:disabled { opacity: .3; cursor: default; background: var(--surface); }
+.seg button:focus-visible, .qty input:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.qty { display: flex; align-items: center; gap: 28px; }
+.qty input[type=range] { flex: 1; accent-color: var(--c-violet-500); height: 40px; }
+.qty input[type=number] { width: 190px; font: 600 40px var(--font-display); color: var(--text); background: var(--surface); border: 0; padding: 12px 18px; text-align: right; caret-color: var(--accent); }
+.qty input[type=number]::-webkit-inner-spin-button, .qty input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.qty input[type=number] { -moz-appearance: textfield; }
+
+.result { position: relative; overflow: hidden; background: var(--brand); padding: 52px 56px; display: flex; flex-direction: column; }
+.result .for { font-size: 24px; color: var(--on-brand-muted); margin-top: auto; }
+.result .big { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.05em; font-size: 112px; line-height: 1; color: #fff; margin-top: 20px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.result .per { margin-top: 40px; display: flex; align-items: baseline; gap: 18px; }
+.result .per b { font-family: var(--font-display); font-weight: 600; font-size: 48px; letter-spacing: -0.03em; color: #fff; white-space: nowrap; }
+.result .per span { font-size: 22px; line-height: 1.35; color: var(--on-brand-muted); }
+.result .note { font-size: 18px; line-height: 1.4; color: var(--on-brand-muted); margin-top: auto; }
+
+/* ===========================================
+   9. ABOUT: the night city in brand violet, figures on a strict grid
+   =========================================== */
+.about9 { background: #08060C; }
+.about9 .city { position: absolute; top: 0; right: 0; width: 1240px; height: 780px; overflow: hidden; }
+.about9 .city img { width: 100%; height: 100%; object-fit: cover; filter: brightness(1.15) contrast(1.1); animation: drift 30s ease-in-out infinite alternate; }
+.about9 .city::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--brand); mix-blend-mode: color; opacity: .55; }
+.about9 .city::after { content: ""; position: absolute; inset: 0; z-index: 2; background: linear-gradient(90deg, #08060C 0%, rgba(8,6,12,.6) 30%, rgba(8,6,12,0) 60%), linear-gradient(0deg, #08060C 0%, rgba(8,6,12,0) 40%); }
+.about9 .slide-head { z-index: 3; }
+.about9 .lead { max-width: 900px; }
+.about9 .keep { position: absolute; left: var(--pad-x); top: 330px; width: 860px; z-index: 3; }
+.about9 .keep .num { font-size: 200px; line-height: .9; letter-spacing: -0.05em; color: var(--accent); }
+.about9 .keep p { font-size: 30px; line-height: 1.35; margin-top: 22px; }
+.about9 .facts4 { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 790px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap); z-index: 3; }
+.about9 .facts4 > div { background: var(--surface); padding: 28px 30px 26px; }
+.about9 .facts4 > div:first-child { background: var(--brand); }
+.about9 .facts4 .num { font-size: 52px; }
+.about9 .facts4 p { font-size: 20px; line-height: 1.35; color: var(--text-muted); margin-top: 8px; }
+.about9 .facts4 > div:first-child p { color: var(--on-brand-muted); }
+.about9 .foot { z-index: 3; }
+
+/* ===========================================
+   10. CONTACTS: the same night, the route arrives
+   =========================================== */
+.visible .contacts .vcard.violet, .contacts.visible .vcard.violet.reveal { transform: translateY(48px); }
+
+/* ===========================================
+   11-16. CONTACT VARIANTS (pick one, delete the rest)
+   =========================================== */
+.vd { background: #0B0712; }
+.va .bar, .vc .bar, .vd .bar, .ve .bar, .vf .bar { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 72px; display: flex; justify-content: space-between; align-items: center; z-index: 3; }
+.va .bar .lg, .vc .bar .lg, .vd .bar .lg, .ve .bar .lg, .vf .bar .lg { height: 46px; }
+.va .bar span, .vc .bar span, .vd .bar span, .ve .bar span, .vf .bar span { font-size: 20px; color: var(--on-brand-muted); }
+.va .legal, .vc .legal, .vd .legal, .ve .legal, .vf .legal { position: absolute; left: var(--pad-x); bottom: 56px; font-size: 18px; color: var(--text-muted); z-index: 3; }
+.va a, .vb a, .vc a, .vd a, .ve a, .vf a { color: inherit; text-decoration: none; }
+
+
+
+
+/* D */
+.vd { background: #050407; }
+.vd .splash { position: absolute; top: 0; left: 560px; width: 1578px; height: 1080px; overflow: hidden; }
+.vd .splash img { width: 100%; height: 100%; object-fit: cover; }
+.vd .splash::after { content: ""; position: absolute; inset: 0; background: var(--brand); mix-blend-mode: color; opacity: .3; }
+.vd h2 { position: absolute; left: var(--pad-x); top: 180px; font-size: 120px; line-height: .98; letter-spacing: -0.05em; z-index: 3; }
+.vd .aside { position: absolute; left: var(--pad-x); top: 392px; font-family: var(--font-display); font-weight: 600; font-size: 40px; letter-spacing: -0.03em; color: var(--accent); z-index: 3; }
+.vd .two { position: absolute; left: var(--pad-x); top: 500px; width: 760px; z-index: 3; }
+.vd .c { padding: 0 0 0 28px; box-shadow: inset 4px 0 0 var(--accent); }
+.vd .c + .c { margin-top: 52px; }
+.vd .c b { display: block; font-size: 28px; font-weight: 600; }
+.vd .c span { display: block; font-size: 19px; color: var(--text-muted); margin-top: 4px; }
+.vd .c .tel { display: block; font-family: var(--font-display); font-weight: 600; font-size: 54px; letter-spacing: -0.04em; margin-top: 16px; white-space: nowrap; }
+.vd .c .mail { display: block; font-size: 20px; margin-top: 6px; color: var(--on-brand-muted); }
+
+
+
+/* ===========================================
+   CONTACT VARIANTS G-P (shared frame)
+   =========================================== */
+.vx { background: #0B0712; }
+.vx a { color: inherit; text-decoration: none; }
+.vx .bar { position: absolute; left: var(--pad-x); right: var(--pad-x); top: 72px; display: flex; justify-content: space-between; align-items: center; z-index: 4; }
+.vx .bar .lg { height: 46px; }
+.vx .bar span { font-size: 20px; color: var(--on-brand-muted); }
+.vx .legal { position: absolute; left: var(--pad-x); bottom: 56px; font-size: 18px; color: var(--text-muted); z-index: 4; }
+.vx .c b { display: block; font-size: 28px; font-weight: 600; }
+.vx .c span { display: block; font-size: 19px; color: var(--text-muted); margin-top: 6px; }
+.vx .c .tel { display: block; font-family: var(--font-display); font-weight: 600; font-size: 52px; letter-spacing: -0.04em; margin-top: 18px; white-space: nowrap; transition: color .2s; }
+.vx .c .tel:hover { color: var(--accent); }
+.vx .c .mail { display: block; font-size: 20px; margin-top: 8px; color: var(--on-brand-muted); }
+.vx h2 { position: absolute; z-index: 4; }
+.vx img.lg.on { position: absolute; left: var(--pad-x); top: 72px; height: 46px; z-index: 4; }
+
+
+.shot .vp .radar .core::after { display: none; }
+/* ===========================================
+   DECK CHROME (outside the slide design)
+   =========================================== */
+.deck-controls { display: flex; align-items: center; gap: 16px; font: 500 14px var(--font-body); color: #8E86A0; }
+.deck-controls button { background: #1B1426; color: #E9E3F5; border: 0; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 18px; }
+.deck-controls button:hover { background: #2A2038; }
+.progress { position: fixed; left: 0; top: 0; height: 3px; background: var(--c-violet-500); transition: width .5s var(--ease-out-expo); z-index: 1000; }
+
+/* inline editing (press E) */
+.edit-hotzone { position: fixed; top: 0; left: 0; width: 80px; height: 80px; z-index: 10000; cursor: pointer; }
+.edit-toggle { position: fixed; top: 18px; left: 18px; z-index: 10001; opacity: 0; pointer-events: none; transition: opacity .3s; font: 600 14px var(--font-body); background: #1B1426; color: #E9E3F5; border: 0; padding: 10px 14px; border-radius: 20px; cursor: pointer; }
+.edit-toggle.show, .edit-toggle.active { opacity: 1; pointer-events: auto; }
+.edit-toggle.active { background: var(--c-violet-500); }
+[contenteditable="true"] { outline: 1px dashed rgba(201,179,247,.5); outline-offset: 4px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-ok" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-stack" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z M3 13l9 5 9-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v6M12 7.2v.1" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-siren" viewBox="0 0 24 24"><path d="M6 18v-5a6 6 0 0112 0v5M4 18h16v3H4zM12 2v2M4.2 5.2l1.4 1.4M19.8 5.2l-1.4 1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-beacon" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="15" r="1.6" fill="currentColor"/><path d="M8.5 6.5a5 5 0 017 0M6 4a8.5 8.5 0 0112 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5l2.6.4 1.3 3.9-1.9 1.4a12 12 0 006.2 6.2l1.4-1.9 3.9 1.3.4 2.6c.1.9-.6 1.8-1.6 1.8C10.7 19.2 4.8 13.3 4.8 5.1c0-1 .9-1.7 1.8-1.6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-radio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2" fill="currentColor"/><path d="M8.5 15.5a5 5 0 010-7M15.5 8.5a5 5 0 010 7M5.6 18.4a9 9 0 010-12.8M18.4 5.6a9 9 0 010 12.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<div class="progress" id="progress"></div>
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Режим правки (E)">Правка</button>
+
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+  <!-- 1. COVER -->
+  <section class="slide cover" aria-label="Обложка">
+    <div class="splash"><img src="assets/device.jpg" alt="Блок АВО под струей воды"></div>
+    <i class="cover-scrim"></i>
+    <div class="top reveal"><img src="assets/logo.webp" alt="АВО"><span>Коммерческое предложение, октябрь 2026</span></div>
+    <h1 class="reveal" style="--d:1">Телематика<br><span class="avo">АВО</span> для<br>Интерлизинга</h1>
+    <p class="intro reveal" style="--d:2">Коммерческая телематика и охранные комплексы для автопарков: от контроля парка до защиты с реагированием Росгвардии. <br>Цены, состав и расчет вашей прибыли.</p>
+    <div class="offer">
+      <div class="reveal" style="--d:4"><div class="num">4 уровня</div><p>защиты для легковых, грузовых ТС и спецтехники</p></div>
+      <div class="reveal" style="--d:5"><div class="num"><small>от</small><span data-v="l1c:kit"></span></div><p>комплект телематики с установкой</p></div>
+      <div class="gain reveal" style="--d:6"><div class="num"><small>до</small><span id="maxGain"></span></div><p>ваша прибыль с одного ТС за срок лизинга</p></div>
+    </div>
+  </section>
+
+  <!-- 2. LADDER -->
+  <section class="slide" aria-label="Четыре уровня">
+    <div class="slide-head">
+      <h2 class="reveal">Четыре уровня под задачи парка</h2>
+      <p class="lead reveal" style="--d:1">Все уровни работают на платформе АВО: веб-кабинет, приложения для iOS и Android и техподдержка 24/7/365.</p>
+    </div>
+    <div class="slide-body" style="top:300px">
+      <div class="ladder">
+        <div class="step s1" style="--i:0">
+          <div class="lv">Уровень 1</div>
+          <h3>Lite «Контроль парка»</h3>
+          <p class="what">Мониторинг, отчеты и удаленная блокировка двигателя. <b>Без маяка и Росгвардии.</b></p>
+          <div class="price"><div class="num">от <span data-v="l1c:kit"></span></div><p>комплект с установкой, плюс <span data-v="l1c:ap"></span> в месяц</p></div>
+        </div>
+        <div class="step s2" style="--i:1">
+          <div class="lv">Уровень 2</div>
+          <h3>«Контроль парка с реагированием РГ»</h3>
+          <p class="what">Все из Lite, плюс <b>поисковый маяк</b> и <b>выезд Росгвардии</b> по тревоге.</p>
+          <div class="price"><div class="num">от <span data-v="l2c:kit"></span></div><p>комплект с установкой, плюс <span data-v="l2c:ap"></span> в месяц</p></div>
+        </div>
+        <div class="step s3 on-brand" style="--i:2">
+          <div class="lv">Уровень 3</div>
+          <h3>Охранный комплекс «Защита ТС»</h3>
+          <p class="what">Контроль парка и <b>охранный комплекс</b>: метка владельца, Anti-Hi-Jack, датчики, кнопка тревоги, договор с вневедомственной охраной.</p>
+          <div class="price"><div class="num"><span data-v="l3:kit"></span></div><p>комплект с установкой, плюс <span data-v="l3:ap"></span> в месяц</p></div>
+        </div>
+        <div class="step s4 on-brand" style="--i:3">
+          <div class="lv">Уровень 4</div>
+          <h3>Охранный комплекс «Максимальная защита ТС и водителя»</h3>
+          <p class="what">Все из «Защиты ТС», плюс <b>сирена</b>, <b>выделенный радиоканал LoRa</b> и <b>автономный маяк-закладка</b>.</p>
+          <div class="price"><div class="num"><span data-v="l4:kit"></span></div><p>комплект с установкой, плюс <span data-v="l4:ap"></span> в месяц</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span><img src="assets/logo.webp" alt="">Коммерческое предложение для «Интерлизинг»</span><span class="page"></span></div>
+  </section>
+
+  <!-- 3. TIER 1: LITE -->
+  <section class="slide" aria-label="Lite «Контроль парка»">
+    <div class="slide-head tierhead">
+      <h2 class="reveal">Lite «Контроль парка»</h2>
+      <p class="lead reveal" style="--d:1">Коммерческая телематика для легковых, грузовых ТС и спецтехники.</p>
+      <div class="meter reveal" style="--d:1"><i class="on now" style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><span>Уровень 1 из 4</span></div>
+    </div>
+    <div class="slide-body" style="top:250px">
+      <div class="tier">
+        <div class="reveal" style="--d:2">
+          <table class="pt">
+            <thead><tr>
+              <th></th>
+              <th><div class="pics"><img class="car" src="assets/car.png" alt=""></div>Легковые ТС</th>
+              <th><div class="pics"><img src="assets/truck.png" alt=""><img src="assets/digger.png" alt=""></div>Грузовые ТС и спецтехника</th>
+            </tr></thead>
+            <tbody>
+              <tr class="kit"><td>Комплект с установкой</td><td class="v"><span class="num" data-v="l1c:kit"></span></td><td class="v"><span class="num" data-v="l1t:kit"></span></td></tr>
+              <tr><td>Абонентская плата в месяц</td><td class="v"><span class="num" data-v="l1c:ap"></span></td><td class="v"><span class="num" data-v="l1t:ap"></span></td></tr>
+              <tr class="rrc"><td>РРЦ на 1 год</td><td class="v" data-rrc="l1c:0"></td><td class="v" data-rrc="l1t:0"></td></tr>
+              <tr class="rrc"><td>РРЦ на 2 года</td><td class="v" data-rrc="l1c:1"></td><td class="v" data-rrc="l1t:1"></td></tr>
+              <tr class="rrc"><td>РРЦ на 3 года</td><td class="v" data-rrc="l1c:2"></td><td class="v" data-rrc="l1t:2"></td></tr>
+            </tbody>
+          </table>
+          <div class="absent">
+            <svg><use href="#i-info"/></svg>
+            <p>В Lite нет поискового маяка и реагирования Росгвардии. <span>Они появляются на уровне «Контроль парка с реагированием РГ».</span></p>
+          </div>
+        </div>
+        <div class="fx">
+          <div class="group reveal" style="--d:3">
+            <div class="cols">
+              <div>
+                <h3>Контроль парка</h3>
+                <ul class="dots">
+                  <li>Онлайн-мониторинг ГЛОНАСС/GPS: где ТС, скорость, маршрут</li>
+                  <li>История поездок за любой период</li>
+                  <li>История парковок и ночных стоянок</li>
+                  <li>Геозоны и отклонения от маршрута</li>
+                  <li>Превышения скорости до штрафов ГИБДД</li>
+                  <li>Ошибки и техническое состояние ТС</li>
+                  <li>Контроль прохождения ТО</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Отчеты</h3>
+                <ul class="dots">
+                  <li>Загруженность каждого ТС в процентах</li>
+                  <li>Простои и парковки</li>
+                  <li>Поездки и их длительность</li>
+                  <li>Пробеги и моточасы</li>
+                  <li>Средняя и максимальная скорость</li>
+                  <li>Нарушения геозон и маршрутов</li>
+                  <li>Нарушения скоростного режима</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="group reveal" style="--d:4">
+            <h3>Надежность и сервис</h3>
+            <ul class="dots two">
+              <li>Дистанционная блокировка двигателя на случай экстренной ситуации</li>
+              <li>Ретрансляция данных в РНИС по запросу</li>
+              <li>Техподдержка 24/7/365</li>
+              <li>Приложения для iOS и Android, веб-кабинет</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span><img src="assets/logo.webp" alt="">Комплект с НДС 22%, абонентская плата с НДС 5%. РРЦ: рекомендованная цена для лизингополучателя за весь срок</span><span class="page"></span></div>
+  </section>
+
+  <!-- 4. TIER 2: WITH ROSGVARDIA -->
+  <section class="slide" aria-label="Контроль парка с реагированием РГ">
+    <div class="slide-head tierhead">
+      <h2 class="reveal">«Контроль парка с реагированием РГ»</h2>
+      <p class="lead reveal" style="--d:1">Функции Lite, поисковый маяк и выезд Росгвардии по тревоге.</p>
+      <div class="meter reveal" style="--d:1"><i class="on" style="--i:0"></i><i class="on now" style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><span>Уровень 2 из 4</span></div>
+    </div>
+    <div class="slide-body" style="top:250px">
+      <div class="tier">
+        <div class="reveal" style="--d:2">
+          <table class="pt">
+            <thead><tr>
+              <th></th>
+              <th><div class="pics"><img class="car" src="assets/car.png" alt=""></div>Легковые ТС</th>
+              <th><div class="pics"><img src="assets/truck.png" alt=""><img src="assets/digger.png" alt=""></div>Грузовые ТС и спецтехника</th>
+            </tr></thead>
+            <tbody>
+              <tr class="kit"><td>Комплект с установкой</td><td class="v"><span class="num" data-v="l2c:kit"></span></td><td class="v"><span class="num" data-v="l2t:kit"></span></td></tr>
+              <tr><td>Абонентская плата в месяц</td><td class="v"><span class="num" data-v="l2c:ap"></span></td><td class="v"><span class="num" data-v="l2t:ap"></span></td></tr>
+              <tr class="rrc"><td>РРЦ на 1 год</td><td class="v" data-rrc="l2c:0"></td><td class="v" data-rrc="l2t:0"></td></tr>
+              <tr class="rrc"><td>РРЦ на 2 года</td><td class="v" data-rrc="l2c:1"></td><td class="v" data-rrc="l2t:1"></td></tr>
+              <tr class="rrc"><td>РРЦ на 3 года</td><td class="v" data-rrc="l2c:2"></td><td class="v" data-rrc="l2t:2"></td></tr>
+            </tbody>
+          </table>
+          <p class="fine">Абонентская плата включает реагирование Росгвардии.</p>
+        </div>
+        <div class="fx">
+          <div class="inherit reveal" style="--d:3">
+            <h3><svg><use href="#i-stack"/></svg>Все из уровня Lite «Контроль парка»</h3>
+            <p>Мониторинг ГЛОНАСС/GPS, история поездок и парковок, геозоны, контроль скорости, техсостояния и ТО, семь отчетов по загрузке парка, дистанционная блокировка двигателя, РНИС, приложения и техподдержка 24/7/365.</p>
+          </div>
+          <div class="adds" style="margin-top:76px">
+            <div class="add reveal" style="--d:4">
+              <img class="pic" src="assets/incars.webp" alt="Маяк InCars">
+              <h3><span class="plus">+</span>Поисковый<br>маяк InCars</h3>
+              <ul class="dots">
+                <li>Работает от своей батареи, к проводке ТС не подключен</li>
+                <li>Второй, независимый источник координат и датчик демонтажа</li>
+                <li>«Мегапоиск» находит маяк в паркингах и цехах, где нет GPS</li>
+              </ul>
+            </div>
+            <div class="add brand on-brand reveal" style="--d:5">
+              <h3><span class="plus">+</span>Реагирование<br>Росгвардии</h3>
+              <ul class="dots">
+                <li>Договор с вневедомственной охраной Росгвардии</li>
+                <li>Тревоги круглосуточно принимает диспетчерский центр АВО</li>
+                <li>По тревоге к ТС выезжает группа реагирования</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span><img src="assets/logo.webp" alt="">Комплект с НДС 22%, абонентская плата с НДС 5%. РРЦ: рекомендованная цена для лизингополучателя за весь срок</span><span class="page"></span></div>
+  </section>
+
+  <!-- 5. TIER 3: SECURITY -->
+  <section class="slide" aria-label="Охранный комплекс «Защита ТС»">
+    <div class="slide-head tierhead">
+      <h2 class="reveal">Охранный комплекс «Защита ТС»</h2>
+      <p class="lead reveal" style="--d:1">Телематика АВО и охранный комплекс с договором вневедомственной охраны.</p>
+      <div class="meter reveal" style="--d:1"><i class="on" style="--i:0"></i><i class="on" style="--i:1"></i><i class="on now" style="--i:2"></i><i style="--i:3"></i><span>Уровень 3 из 4</span></div>
+    </div>
+    <div class="slide-body single" style="top:250px">
+      <div class="tier">
+        <div class="reveal" style="--d:2">
+          <div class="scheme" aria-hidden="true">
+            <svg class="leads" viewBox="0 0 800 312" aria-hidden="true"><path d="M252 43 H252 L372 92"/><path d="M252 143 H252 L350 140"/><path d="M252 245 H252 L318 228"/><path d="M568 73 H568 L452 98"/><path d="M568 199 H568 L432 172"/></svg>
+            <img class="car" src="assets/car.png" alt="">
+            <i class="pin" style="left:372px;top:92px;--pd:0.1s"></i>
+            <i class="pin" style="left:350px;top:140px;--pd:0.5s"></i>
+            <i class="pin" style="left:318px;top:228px;--pd:0.9s"></i>
+            <i class="pin" style="left:452px;top:98px;--pd:0.7s"></i>
+            <i class="pin" style="left:432px;top:172px;--pd:0.3s"></i>
+            <div class="tag l" style="left:24px;top:30px"><b>Метка владельца</b><span>2,4 ГГц, Anti-Hi-Jack</span></div>
+            <div class="tag l" style="left:24px;top:130px"><b>Двери, капот, багажник</b><span>контроль открытия</span></div>
+            <div class="tag l" style="left:24px;top:232px"><b>Удар, крен, наклон</b><span>датчики движения</span></div>
+            <div class="tag r" style="left:576px;top:60px"><b>Кнопка тревоги</b><span>в салоне</span></div>
+            <div class="tag r" style="left:576px;top:186px"><b>Блокировка двигателя</b><span>без метки и удаленно</span></div>
+          </div>
+          <table class="pt">
+            <tbody>
+              <tr class="kit"><td>Комплект с установкой</td><td class="v"><span class="num" data-v="l3:kit"></span></td></tr>
+              <tr><td>Абонентская плата в месяц</td><td class="v"><span class="num" data-v="l3:ap"></span></td></tr>
+              <tr class="rrc"><td>РРЦ на 1 год</td><td class="v" data-rrc="l3:0" data-inline></td></tr>
+              <tr class="rrc"><td>РРЦ на 2 года</td><td class="v" data-rrc="l3:1" data-inline></td></tr>
+              <tr class="rrc"><td>РРЦ на 3 года</td><td class="v" data-rrc="l3:2" data-inline></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="fx">
+          <div class="inherit reveal" style="--d:3">
+            <h3><svg><use href="#i-stack"/></svg>Вся телематика уровня «Контроль парка»</h3>
+            <p>Мониторинг, история поездок и парковок, геозоны, контроль скорости и ТО, отчеты, приложения и техподдержка 24/7/365.</p>
+          </div>
+          <div class="group reveal" style="--d:4; margin-top:30px">
+            <h3>Охранный комплекс</h3>
+            <ul class="dots two tight">
+              <li>Договор с вневедомственной охраной</li>
+              <li>Метка владельца 2,4 ГГц</li>
+              <li>Anti-Hi-Jack при захвате ТС</li>
+              <li>Моментальная постановка в охрану</li>
+              <li>Защита от удлинения сигнала ключа</li>
+              <li>Блокировка двигателя без метки</li>
+              <li>Проводные блокировки</li>
+              <li>Контроль дверей, капота, багажника</li>
+              <li>Датчики удара, крена и наклона</li>
+              <li>Контроль отключения АКБ</li>
+              <li>Встроенное резервное питание</li>
+              <li>Кнопка тревоги в салоне</li>
+              <li>Вызов экстренных служб</li>
+              <li>Связь по GSM/GPRS</li>
+            </ul>
+          </div>
+          <div class="group reveal" style="--d:5">
+            <h3>Защита от внутренних рисков</h3>
+            <ul class="dots two tight">
+              <li>Тревога при демонтаже оборудования</li>
+              <li>Отключение питания и вмешательство</li>
+              <li>Защита от взломов и угонов</li>
+              <li>Круглосуточные сервисы</li>
+              <li>Диспетчерский центр и реагирование Росгвардии 24/7</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span><img src="assets/logo.webp" alt="">Комплект с НДС 22%, абонентская плата с НДС 5%. РРЦ: рекомендованная цена для лизингополучателя за весь срок</span><span class="page"></span></div>
+  </section>
+
+  <!-- 6. TIER 4: MAXIMUM -->
+  <section class="slide" aria-label="«Максимальная защита ТС и водителя»">
+    <div class="slide-head tierhead">
+      <h2 class="reveal">«Максимальная защита ТС и водителя»</h2>
+      <p class="lead reveal" style="--d:1">Охранный комплекс старшего уровня: все из «Защиты ТС» и еще три линии защиты.</p>
+      <div class="meter reveal" style="--d:1"><i class="on" style="--i:0"></i><i class="on" style="--i:1"></i><i class="on" style="--i:2"></i><i class="on now" style="--i:3"></i><span>Уровень 4 из 4</span></div>
+    </div>
+    <div class="slide-body single" style="top:250px">
+      <div class="tier">
+        <div class="reveal" style="--d:2">
+          <div class="scheme" aria-hidden="true">
+            <svg class="leads" viewBox="0 0 800 312" aria-hidden="true"><path d="M568 43 H568 L410 50"/><path d="M568 173 H568 L472 142"/><path d="M252 123 H252 L356 100"/></svg>
+            <img class="car" src="assets/car.png" alt="">
+            <i class="pin hot" style="left:410px;top:50px;--pd:0.1s"></i>
+            <i class="pin hot" style="left:472px;top:142px;--pd:0.5s"></i>
+            <i class="pin hot" style="left:356px;top:100px;--pd:0.3s"></i>
+            <div class="tag r" style="left:576px;top:30px"><b>Радиоканал LoRa</b><span>связь при глушении GSM</span></div>
+            <div class="tag r" style="left:576px;top:160px"><b>Сирена</b><span>при тревоге</span></div>
+            <div class="tag l" style="left:24px;top:110px"><b>Маяк-закладка</b><span>автономный, GSM/GPRS</span></div>
+          </div>
+          <table class="pt">
+            <tbody>
+              <tr class="kit"><td>Комплект с установкой</td><td class="v"><span class="num" data-v="l4:kit"></span></td></tr>
+              <tr><td>Абонентская плата в месяц</td><td class="v"><span class="num" data-v="l4:ap"></span></td></tr>
+              <tr class="rrc"><td>РРЦ на 1 год</td><td class="v" data-rrc="l4:0" data-inline></td></tr>
+              <tr class="rrc"><td>РРЦ на 2 года</td><td class="v" data-rrc="l4:1" data-inline></td></tr>
+              <tr class="rrc"><td>РРЦ на 3 года</td><td class="v" data-rrc="l4:2" data-inline></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="fx">
+          <div class="inherit reveal" style="--d:3">
+            <h3><svg><use href="#i-stack"/></svg>Все из «Защиты ТС» и вся телематика</h3>
+            <p>Охранный комплекс с договором вневедомственной охраны, защита от внутренних рисков, мониторинг, отчеты, приложения и поддержка 24/7/365.</p>
+          </div>
+          <div class="group reveal" style="--d:4; margin-top:30px">
+            <h3>Добавляется на этом уровне</h3>
+            <ul class="adds4">
+              <li>Звуковая сирена</li>
+              <li>Выделенный радиоканал LoRa</li>
+              <li>Маяк-закладка</li>
+            </ul>
+          </div>
+          <div class="group reveal" style="--d:5">
+            <h3>Охранный комплекс «Защиты ТС»</h3>
+            <ul class="dots two tight">
+              <li>Договор с вневедомственной охраной</li>
+              <li>Метка владельца 2,4 ГГц</li>
+              <li>Anti-Hi-Jack при захвате ТС</li>
+              <li>Защита от удлинения сигнала ключа</li>
+              <li>Блокировка двигателя без метки</li>
+              <li>Проводные блокировки</li>
+              <li>Контроль дверей, капота, багажника</li>
+              <li>Датчики удара, крена и наклона</li>
+              <li>Контроль АКБ, резервное питание</li>
+              <li>Кнопка тревоги, экстренные службы</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span><img src="assets/logo.webp" alt="">Комплект с НДС 22%, абонентская плата с НДС 5%. РРЦ: рекомендованная цена для лизингополучателя за весь срок</span><span class="page"></span></div>
+  </section>
+
+  <!-- 7. COMPARISON -->
+  <section class="slide" aria-label="Сравнение уровней">
+    <div class="slide-head">
+      <h2 class="reveal">Что входит в каждый уровень</h2>
+    </div>
+    <div class="slide-body" style="top:200px; bottom:100px">
+      <table class="cmp reveal" style="--d:1">
+        <thead><tr>
+          <th></th>
+          <th>Lite «Контроль парка»</th>
+          <th>«Контроль парка с реагированием РГ»</th>
+          <th>«Защита ТС»</th>
+          <th class="top">«Максимальная защита ТС и водителя»</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Мониторинг ГЛОНАСС/GPS, поездки, парковки, геозоны</td><td><svg class="ok"><use href="#i-ok"/></svg></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr><td>Контроль скорости, техсостояния и ТО, отчеты</td><td><svg class="ok"><use href="#i-ok"/></svg></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr><td>Дистанционная блокировка двигателя</td><td><svg class="ok"><use href="#i-ok"/></svg></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr><td>Приложения, веб-кабинет, поддержка 24/7/365</td><td><svg class="ok"><use href="#i-ok"/></svg></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr><td>Реагирование Росгвардии</td><td><i class="no"></i></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr><td>Автономный поисковый маяк</td><td><i class="no"></i></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td><i class="no"></i></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr><td>Метка владельца 2,4 ГГц, Anti-Hi-Jack, защита ключа</td><td><i class="no"></i></td><td><i class="no"></i></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr><td>Блокировка без метки, проводные блокировки</td><td><i class="no"></i></td><td><i class="no"></i></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr><td>Двери, капот, багажник, датчики удара, АКБ</td><td><i class="no"></i></td><td><i class="no"></i></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr><td>Кнопка тревоги, вызов экстренных служб</td><td><i class="no"></i></td><td><i class="no"></i></td><td><svg class="ok"><use href="#i-ok"/></svg></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr><td>Сирена</td><td><i class="no"></i></td><td><i class="no"></i></td><td><i class="no"></i></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr><td>Выделенный радиоканал LoRa</td><td><i class="no"></i></td><td><i class="no"></i></td><td><i class="no"></i></td><td class="col4"><svg class="ok"><use href="#i-ok"/></svg></td></tr>
+          <tr class="gap"><td colspan="5"></td></tr>
+          <tr class="money"><td>Комплект с установкой</td><td><span class="num"><span data-v="l1c:kitk"></span></span><small>легковые / грузовые</small></td><td><span class="num"><span data-v="l2c:kitk"></span></span><small>легковые / грузовые</small></td><td><span class="num" data-v="l3:kit"></span></td><td class="col4"><span class="num" data-v="l4:kit"></span></td></tr>
+          <tr class="money"><td>Абонентская плата в месяц</td><td><span class="num" data-v="l1c:ap"></span></td><td><span class="num" data-v="l2c:ap"></span></td><td><span class="num" data-v="l3:ap"></span></td><td class="col4"><span class="num" data-v="l4:ap"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="foot"><span><img src="assets/logo.webp" alt="">Коммерческое предложение для «Интерлизинг»</span><span class="page"></span></div>
+  </section>
+
+  <!-- 8. CALCULATOR -->
+  <section class="slide" aria-label="Калькулятор прибыли">
+    <div class="slide-head">
+      <h2 class="reveal">Сколько вы заработаете на телематике</h2>
+      <p class="lead reveal" style="--d:1">Вы покупаете телематику по цене АВО, а лизингополучателю продаете по РРЦ. Разница остается у вас.</p>
+    </div>
+    <div class="slide-body" style="top:290px; bottom:118px">
+      <div class="calc">
+        <div class="ctrl reveal" style="--d:2">
+          <div>
+            <div class="label">Уровень</div>
+            <div class="seg lv" id="cLvl">
+              <button data-l="1" aria-pressed="true">Lite<small>Контроль парка</small></button>
+              <button data-l="2" aria-pressed="false">Lite с&nbsp;РГ<small>Маяк и реагирование Росгвардии</small></button>
+              <button data-l="3" aria-pressed="false">Защита ТС<small>Охранный комплекс</small></button>
+              <button data-l="4" aria-pressed="false">Максимум<small>Максимальная защита ТС и водителя</small></button>
+            </div>
+          </div>
+          <div>
+            <div class="label">Тип ТС</div>
+            <div class="seg two" id="cVeh">
+              <button data-veh="c" aria-pressed="true">Легковые</button>
+              <button data-veh="t" aria-pressed="false">Грузовые и спецтехника</button>
+            </div>
+          </div>
+          <div>
+            <div class="label">Срок лизинга</div>
+            <div class="seg three" id="cTerm">
+              <button data-t="0" aria-pressed="false">1 год</button>
+              <button data-t="1" aria-pressed="false">2 года</button>
+              <button data-t="2" aria-pressed="true">3 года</button>
+            </div>
+          </div>
+          <div>
+            <div class="label">Машин в парке</div>
+            <div class="qty">
+              <input type="range" id="qtyRange" min="1" max="500" value="100" aria-label="Количество ТС">
+              <input type="number" id="qtyNum" min="1" max="100000" value="100" aria-label="Количество ТС, число">
+            </div>
+          </div>
+        </div>
+        <div class="result reveal from-right" style="--d:3" aria-live="polite">
+          <p class="for" id="oFor">Ваша прибыль на 100 ТС за 3 года</p>
+          <div class="big" id="oTotal">0 ₽</div>
+          <div class="per"><b id="oPer"></b><span>с каждого ТС</span></div>
+          <p class="note">Расчет по ценам этого предложения, суммы с НДС.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span><img src="assets/logo.webp" alt="">Коммерческое предложение для «Интерлизинг»</span><span class="page"></span></div>
+  </section>
+
+  <!-- 9. ABOUT -->
+  <section class="slide about9" aria-label="Об АВО">
+    <div class="city"><img src="assets/moscow.jpg" alt="Ночная Москва с высоты"></div>
+    <div class="slide-head">
+      <h2 class="reveal"><span class="avo">АВО</span> Телематика</h2>
+      <p class="lead reveal" style="--d:1">Российский производитель и оператор телематики, многолетний партнер ведущих лизинговых компаний страны.</p>
+    </div>
+    <div class="keep reveal" style="--d:2">
+      <div class="num"><span data-count="70">70</span>%</div>
+      <p>лизингополучателей продолжают пользоваться телематикой АВО после закрытия договора лизинга</p>
+    </div>
+    <div class="facts4">
+      <div class="reveal" style="--d:3"><div class="num"><span data-count="250000">250 000</span></div><p>активных устройств</p></div>
+      <div class="reveal" style="--d:4"><div class="num"><span data-count="86">86</span></div><p>регионов присутствия</p></div>
+      <div class="reveal" style="--d:5"><div class="num"><span data-count="20">20</span> лет</div><p>опыта в телематике и охране транспорта</p></div>
+      <div class="reveal" style="--d:6"><div class="num"><span data-count="36">36</span> мес.</div><p>гарантии на оборудование</p></div>
+    </div>
+    <div class="foot"><span><img src="assets/logo.webp" alt="">Коммерческое предложение для «Интерлизинг»</span><span class="page"></span></div>
+  </section>
+
+
+
+
+
+  <!-- 14. CONTACTS, VARIANT D: bookend to the cover -->
+  <section class="slide vd" aria-label="Контакты, вариант D">
+    <div class="splash"><img src="assets/device.jpg" alt=""></div><i class="cover-scrim"></i>
+    <div class="bar reveal"><img class="lg" src="assets/logo.webp" alt="АВО"><span>Система верных решений</span></div>
+    <h2 class="reveal" style="--d:1"><span class="avo wide up">В</span>сегда<br>на с<span class="avo wide lo">в</span>язи</h2>
+    <div class="two"><div class="c reveal" style="--d:2"><b>Александр Поздняков</b><span>Директор по продажам</span><a class="tel" href="tel:+79165307016">+7 916 530-70-16</a><a class="mail" href="mailto:a.pozdnyakov@avo-telematica.ru?subject=Телематика%20АВО%20для%20Интерлизинг">a.pozdnyakov@avo-telematica.ru</a></div><div class="c reveal" style="--d:3"><b>Эдгар Зоркин</b><span>Менеджер по работе с ключевыми клиентами</span><a class="tel" href="tel:+79657672950">+7 965 767-29-50</a><a class="mail" href="mailto:zorkin@myavo.ru?subject=Телематика%20АВО%20для%20Интерлизинг">zorkin@myavo.ru</a></div></div>
+    <p class="legal">ООО «АВО Телематика», ОГРН 1187746632314</p>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+</main>
+</div>
+
+<nav class="deck-controls" aria-label="Навигация">
+  <button id="prevBtn" aria-label="Назад">‹</button>
+  <span id="counter">1 / 10</span>
+  <button id="nextBtn" aria-label="Вперед">›</button>
+</nav>
+
+<script>
+/* ===========================================
+   PRICE DATA (from the Excel offer, rows 1-6)
+   kit: комплект с установкой, НДС 22%
+   ap:  абонентская плата в месяц, НДС 5%
+   rrc: РРЦ для лизингополучателя на 1, 2, 3 года
+   =========================================== */
+const TARIFFS = [
+  { id: 'l1c', name: 'Lite «Контроль парка»', short: 'Lite, легковые', veh: 'легковые', kit: 18900, ap: 560, rrc: [50000, 60000, 80000] },
+  { id: 'l1t', name: 'Lite «Контроль парка»', short: 'Lite, грузовые и спецтехника', veh: 'грузовые и спецтехника', kit: 24900, ap: 560, rrc: [60000, 70000, 90000] },
+  { id: 'l2c', name: 'С реагированием РГ', short: 'С реагированием РГ, легковые', veh: 'легковые', kit: 22900, ap: 840, rrc: [60000, 80000, 100000] },
+  { id: 'l2t', name: 'С реагированием РГ', short: 'С реагированием РГ, грузовые', veh: 'грузовые и спецтехника', kit: 29900, ap: 840, rrc: [80000, 100000, 120000] },
+  { id: 'l3', name: '«Защита ТС»', short: '«Защита ТС»', veh: '', kit: 34900, ap: 1800, rrc: [90000, 120000, 150000] },
+  { id: 'l4', name: '«Максимальная защита»', short: '«Максимальная защита»', veh: '', kit: 49900, ap: 2000, rrc: [120000, 150000, 190000] },
+];
+const byId = Object.fromEntries(TARIFFS.map((t) => [t.id, t]));
+const months = (term) => 12 * (term + 1);
+const cost = (t, term) => t.kit + t.ap * months(term);
+const gain = (t, term) => t.rrc[term] - cost(t, term);
+const fmt = (n) => Math.round(n).toLocaleString('ru-RU');
+const rub = (n) => fmt(n) + '\u00a0₽';
+const TERM_WORD = ['1 год', '2 года', '3 года'];
+
+/* fill every price on the slides from the same data */
+document.querySelectorAll('[data-v]').forEach((el) => {
+  const [id, key] = el.dataset.v.split(':'), t = byId[id];
+  if (key === 'kitk') { el.textContent = fmt(t.kit) + ' / ' + rub(byId[id.replace('c', 't')].kit); return; }
+  el.textContent = rub(t[key]);
+});
+document.querySelectorAll('[data-rrc]').forEach((el) => {
+  const [id, k] = el.dataset.rrc.split(':'), t = byId[id], term = +k;
+  el.innerHTML = `<span class="num">${rub(t.rrc[term])}</span><span class="gain">прибыль <b>${rub(gain(t, term))}</b></span>`;
+});
+
+document.getElementById('maxGain').textContent = rub(Math.max(...TARIFFS.flatMap((t) => [0, 1, 2].map((k) => gain(t, k)))));
+
+/* ===========================================
+   SLIDE PRESENTATION CONTROLLER
+   Arrows, Space, PageUp/Down, wheel, swipe, #N in the URL
+   =========================================== */
+class SlidePresentation {
+  constructor() {
+    this.slides = [...document.querySelectorAll('.slide')];
+    this.stage = document.getElementById('deckStage');
+    this.counter = document.getElementById('counter');
+    this.progress = document.getElementById('progress');
+    this.current = 0;
+    this.slides.forEach((s, i) => { const p = s.querySelector('.page'); if (p) p.textContent = i + 1; });
+    this.scale();
+    window.addEventListener('resize', () => this.scale());
+    this.bindNav();
+    const fromHash = parseInt(location.hash.slice(1), 10);
+    this.show(Number.isFinite(fromHash) ? fromHash - 1 : 0);
+  }
+  scale() {
+    const f = Math.min(innerWidth / 1920, innerHeight / 1080);
+    this.stage.style.transform = `translate(${(innerWidth - 1920 * f) / 2}px, ${(innerHeight - 1080 * f) / 2}px) scale(${f})`;
+  }
+  bindNav() {
+    const typing = (e) => e.target.closest('input, textarea, [contenteditable="true"]');
+    document.addEventListener('keydown', (e) => {
+      if (typing(e)) return;
+      if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); this.show(this.current + 1); }
+      if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); this.show(this.current - 1); }
+      if (e.key === 'Home') this.show(0);
+      if (e.key === 'End') this.show(this.slides.length - 1);
+    });
+    let lock = false;
+    window.addEventListener('wheel', (e) => {
+      if (lock || Math.abs(e.deltaY) < 30 || e.target.closest('input')) return;
+      lock = true; setTimeout(() => (lock = false), 700);
+      this.show(this.current + (e.deltaY > 0 ? 1 : -1));
+    }, { passive: true });
+    let x0 = null;
+    window.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    window.addEventListener('touchend', (e) => {
+      if (x0 === null || e.target.closest('input, button')) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 50) this.show(this.current + (dx < 0 ? 1 : -1));
+    });
+    document.getElementById('prevBtn').onclick = () => this.show(this.current - 1);
+    document.getElementById('nextBtn').onclick = () => this.show(this.current + 1);
+  }
+  show(i) {
+    this.current = Math.max(0, Math.min(i, this.slides.length - 1));
+    this.slides.forEach((s, k) => { s.classList.toggle('active', k === this.current); s.classList.toggle('visible', k === this.current); });
+    this.counter.textContent = `${this.current + 1} / ${this.slides.length}`;
+    this.progress.style.width = `${((this.current + 1) / this.slides.length) * 100}%`;
+    history.replaceState(null, '', '#' + (this.current + 1));
+    this.slides[this.current].querySelectorAll('[data-count]').forEach(countUp);
+  }
+}
+
+/* number roll-up for the big figures */
+const SHOT = /shot/.test(location.search);
+if (SHOT) document.documentElement.classList.add('shot');
+const reduce = SHOT || matchMedia('(prefers-reduced-motion: reduce)').matches;
+function countUp(el) {
+  const to = +el.dataset.count, t0 = performance.now(), dur = 1100;
+  if (reduce) { el.textContent = fmt(to); return; }
+  const tick = (t) => { const k = Math.min(1, (t - t0) / dur); el.textContent = fmt(to * (1 - Math.pow(1 - k, 4))); if (k < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+/* roll a figure from its current value to a new one */
+function rollTo(el, to) {
+  const from = +(el.dataset.now || 0); el.dataset.now = to;
+  if (reduce || from === to) { el.textContent = rub(to); return; }
+  const t0 = performance.now(), dur = 600;
+  const tick = (t) => { const k = Math.min(1, (t - t0) / dur); el.textContent = rub(from + (to - from) * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+
+/* ===========================================
+   PROFIT CALCULATOR
+   =========================================== */
+(function calculator() {
+  const $ = (id) => document.getElementById(id);
+  const lvl = $('cLvl'), veh = $('cVeh'), term = $('cTerm'), range = $('qtyRange'), num = $('qtyNum');
+  const state = { l: 1, v: 'c', t: 2 };
+  /* the big figure shrinks to fit the panel, never overflows it */
+  const fitTotal = (txt) => {
+    const el = $('oTotal'), keep = el.textContent; el.textContent = txt;
+    let size = 116; el.style.fontSize = size + 'px';
+    while (el.scrollWidth > el.clientWidth && size > 48) { size -= 4; el.style.fontSize = size + 'px'; }
+    el.style.fontSize = (size - 8) + 'px';
+    el.textContent = keep;
+  };
+  const tariffId = () => (state.l > 2 ? 'l' + state.l : 'l' + state.l + state.v);
+  const press = (box, attr, val) => box.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', b.dataset[attr] === String(val)));
+
+  const render = () => {
+    const t = byId[tariffId()], q = Math.max(1, Math.min(100000, parseInt(num.value, 10) || 1)), g = gain(t, state.t);
+    veh.querySelectorAll('button').forEach((b) => { b.disabled = state.l > 2; });
+    press(veh, 'veh', state.l > 2 ? '' : state.v);
+    $('oFor').textContent = `Ваша прибыль на ${fmt(q)} ТС за ${TERM_WORD[state.t]}`;
+    fitTotal(rub(g * q));
+    rollTo($('oTotal'), g * q);
+    $('oPer').textContent = rub(g);
+  };
+  lvl.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; state.l = +b.dataset.l; press(lvl, 'l', state.l); render(); });
+  veh.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b || b.disabled) return; state.v = b.dataset.veh; render(); });
+  term.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; state.t = +b.dataset.t; press(term, 't', state.t); render(); });
+  range.addEventListener('input', () => { num.value = range.value; render(); });
+  num.addEventListener('input', () => { range.value = Math.min(500, +num.value || 1); render(); });
+  render();
+})();
+
+/* ===========================================
+   INLINE EDITING (E key or the top-left corner)
+   Edits are kept in this browser's localStorage
+   =========================================== */
+const editor = {
+  isActive: false,
+  sel: '.slide h1, .slide h2, .slide h3, .slide p, .slide li, .slide .tag b, .slide .tag span, .slide .who b, .slide .who span',
+  key: 'avo-fleet-leasing-deck-edits',
+  load() {
+    try { const d = JSON.parse(localStorage.getItem(this.key) || '{}'); document.querySelectorAll(this.sel).forEach((el, i) => { if (d[i] != null) el.innerHTML = d[i]; }); } catch (e) {}
+  },
+  save() {
+    try { const d = {}; document.querySelectorAll(this.sel).forEach((el, i) => (d[i] = el.innerHTML)); localStorage.setItem(this.key, JSON.stringify(d)); } catch (e) {}
+  },
+  toggleEditMode() {
+    this.isActive = !this.isActive;
+    document.querySelectorAll(this.sel).forEach((el) => el.setAttribute('contenteditable', this.isActive));
+    editToggle.classList.toggle('active', this.isActive);
+    editToggle.textContent = this.isActive ? 'Готово' : 'Правка';
+    if (!this.isActive) this.save();
+  },
+};
+const editToggle = document.getElementById('editToggle');
+const hotzone = document.querySelector('.edit-hotzone');
+let hideTimeout = null;
+editToggle.addEventListener('click', () => editor.toggleEditMode());
+hotzone.addEventListener('click', () => editor.toggleEditMode());
+hotzone.addEventListener('mouseenter', () => { clearTimeout(hideTimeout); editToggle.classList.add('show'); });
+hotzone.addEventListener('mouseleave', () => { hideTimeout = setTimeout(() => { if (!editor.isActive) editToggle.classList.remove('show'); }, 400); });
+editToggle.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+editToggle.addEventListener('mouseleave', () => { hideTimeout = setTimeout(() => { if (!editor.isActive) editToggle.classList.remove('show'); }, 400); });
+document.addEventListener('keydown', (e) => {
+  if ((e.key === 'e' || e.key === 'E' || e.key === 'у' || e.key === 'У') && !e.target.closest('input, [contenteditable="true"]')) editor.toggleEditMode();
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); editor.save(); }
+});
+editor.load();
+
+new SlidePresentation();
+
+/* navigation fades out while the mouse is still, so it never covers the footer */
+(() => {
+  const nav = document.querySelector('.deck-controls'); let t = null;
+  const wake = () => { nav.classList.remove('idle'); clearTimeout(t); t = setTimeout(() => nav.classList.add('idle'), 2200); };
+  ['mousemove', 'keydown', 'touchstart'].forEach((ev) => addEventListener(ev, wake, { passive: true }));
+  wake();
+})();
+</script>
+</body>
+</html>
